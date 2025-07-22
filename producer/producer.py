@@ -31,8 +31,8 @@ CATEGORIES = [
     "electronics", "fashion", "home", "beauty",
     "sports", "toys", "automotive", "grocery"
 ]
-N_USERS = 10_000
-N_ITEMS = 2_000
+N_USERS = 10_00
+N_ITEMS = 2_00
 
 FIRST_NAMES_RAW = """
 Olivia Liam Emma Noah Charlotte Oliver Amelia Elijah Ava Mateo Sophia Lucas
@@ -161,7 +161,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--broker", default=os.getenv("KAFKA_BROKER", "localhost:9092"))
     parser.add_argument("--topic",  default=os.getenv("KAFKA_TOPIC",  "interactions"))
-    parser.add_argument("--rate", type=int, default=100, help="events/second")
+    parser.add_argument("--rate", type=int, default=10, help="events/second")
     parser.add_argument("--linger-ms", type=int, default=300)
     parser.add_argument("--batch-size", type=int, default=16 * 1024)
     main(parser.parse_args())

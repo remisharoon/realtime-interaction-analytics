@@ -43,10 +43,8 @@ services:
     build: ./producer
     container_name: producer
     environment:
-      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
-      - VIDEO_ID=${VIDEO_ID}
       - KAFKA_BROKER=kafka:9092
-      - KAFKA_TOPIC=${KAFKA_TOPIC}
+      - KAFKA_TOPIC=rt_interactions
     volumes:
       - ./logs/producer:/app/logs
     depends_on:
@@ -62,7 +60,7 @@ services:
     container_name: spark
     environment:
       - KAFKA_BROKER=kafka:9092
-      - KAFKA_TOPIC=${KAFKA_TOPIC}
+      - KAFKA_TOPIC=rt_interactions
       - ELASTICSEARCH_HOST=elasticsearch
       - ELASTICSEARCH_PORT=9200
     volumes:
@@ -117,21 +115,6 @@ services:
       - kafka-network
     restart: always
 
-#  csv_producer:
-#    build:
-#      context: ./logs/final_log
-#      dockerfile: Dockerfile
-#    container_name: csv_producer
-#    environment:
-#      - KAFKA_BROKER=kafka:9092
-#      - KAFKA_TOPIC=youtube_live_chat
-#    volumes:
-#      - ./logs/final_log:/app
-#    depends_on:
-#      kafka:
-#        condition: service_healthy
-#    networks:
-#      - kafka-network
 
 networks:
   kafka-network:
