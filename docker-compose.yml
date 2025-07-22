@@ -55,7 +55,7 @@ services:
     restart: always
 
   spark:
-    image: bitnami/spark:latest
+    image: remisharoon/rt_spark:latest
     build: ./spark
     container_name: spark
     environment:

@@ -40,7 +40,7 @@ log = logging.getLogger("aggregator")
 # ───────────── Env & constants ───────────────
 load_dotenv()
 BROKER  = os.getenv("KAFKA_BROKER", "localhost:9092")
-TOPIC   = (os.getenv("KAFKA_TOPIC") or "interactions").strip()
+TOPIC   = (os.getenv("KAFKA_TOPIC") or "rt_interactions").strip()
 ES_HOST = os.getenv("ELASTICSEARCH_HOST", "http://localhost:9200")
 PARTS   = int(os.getenv("SPARK_PARTITIONS", "4"))
 
