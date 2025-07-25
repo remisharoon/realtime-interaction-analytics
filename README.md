@@ -111,6 +111,12 @@ Dashboard auto-refreshes every 5 s; metrics stabilize after ~30 s of data.
 
 ---
 
+## 📊 Real-time Monitoring Dashboard
+
+<p align="center">
+  <img src="img/RTD dashboard.png" alt="Kibana dashboard" width="800">
+</p>
+
 ## Project Layout
 ```
 realtime-interaction-analytics/
